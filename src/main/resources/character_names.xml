@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<names>
+    <name gender="male">Peter</name>
+    <name gender="male">Mark</name>
+    <name gender="male">Thomas</name>
+    <name gender="male">George</name>
+    <name gender="male">John</name>
+    <name gender="male">Daniel</name>
+    <name gender="female">Linda</name>
+    <name gender="female">Jane</name>
+    <name gender="female">Melissa</name>
+    <name gender="female">Wilma</name>
+    <name gender="female">Susi</name>
+    <name gender="female">Ann</name>
+    <name gender="trans">Kim</name>
+</names>
