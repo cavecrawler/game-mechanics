@@ -1,5 +1,19 @@
 <?xml version="1.0" encoding="utf-8" ?>
 
 <classes>
-    <class></class>
+    <class type="Rogue">
+        <attribute>Dexterity</attribute>
+        <hitpoints>90</hitpoints>
+        <mana>50</mana>
+    </class>
+    <class type="Warrior">
+        <attribute>Strength</attribute>
+        <hitpoints>110</hitpoints>
+        <mana>30</mana>
+    </class>
+    <class type="Mage">
+        <attribute>Intelligence</attribute>
+        <hitpoints>80</hitpoints>
+        <mana>100</mana>
+    </class>
 </classes>
