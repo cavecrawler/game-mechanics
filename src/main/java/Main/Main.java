@@ -1,3 +1,5 @@
+package Main;
+
 import XMLHandler.CharacterClassHandler;
 import XMLHandler.NameHandler;
 
