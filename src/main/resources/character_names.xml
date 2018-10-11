@@ -7,11 +7,20 @@
     <name gender="male">George</name>
     <name gender="male">John</name>
     <name gender="male">Daniel</name>
+    <name gender="male">Jack</name>
+    <name gender="male">Bob</name>
+    <name gender="male">Friedrich</name>
+    <name gender="male">Chris</name>
+    <name gender="male">Dwayne</name>
+
     <name gender="female">Linda</name>
     <name gender="female">Jane</name>
     <name gender="female">Melissa</name>
     <name gender="female">Wilma</name>
     <name gender="female">Susi</name>
     <name gender="female">Ann</name>
-    <name gender="neutral">Kim</name>
+    <name gender="female">Melisandre</name>
+    <name gender="female">Olga</name>
+    <name gender="female">Mara</name>
+    <name gender="female">Hilda</name>
 </names>

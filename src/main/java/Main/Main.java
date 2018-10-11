@@ -22,19 +22,16 @@ public class Main {
         List<Character> characterList = new ArrayList<Character>();
 
 
-        for (int i = 0; i < 5; i++) {
+        for (int i = 0; i < 20; i++) {
             Random rnd = new Random();
             Character character = new Character();
             String gender = null;
-            switch (rnd.nextInt(3)) {
+            switch (rnd.nextInt(2)) {
                 case 0:
                     gender = "male";
                     break;
                 case 1:
                     gender = "female";
-                    break;
-                default:
-                    gender = "neutral";
                     break;
             }
             character.setCharGender(gender);
@@ -42,11 +39,13 @@ public class Main {
                 character.setCharName(characterNames.get(0).get(rnd.nextInt(characterNames.get(0).size())));
             } else if (gender.contentEquals("female")) {
                 character.setCharName(characterNames.get(1).get(rnd.nextInt(characterNames.get(1).size())));
-            } else if (gender.contentEquals("neutral")) {
-                character.setCharName(characterNames.get(2).get(rnd.nextInt(characterNames.get(2).size())));
             }
             character.setCharacterClass(classes.get(rnd.nextInt(classes.size())));
             characterList.add(character);
+        }
+
+        for (Character character : characterList) {
+            character.printCharacterInfo();
         }
         int i = 1;
 

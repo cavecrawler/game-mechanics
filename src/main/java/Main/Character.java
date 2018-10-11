@@ -37,6 +37,7 @@ public class Character {
 
     public void setCharacterClass(CharacterClass characterClass) {
         this.characterClass = characterClass;
+        hitpoints = characterClass.getHitpoints();
     }
 
     public int getHitpoints() {
@@ -48,7 +49,7 @@ public class Character {
     }
 
     public void printCharacterInfo() {
-        System.out.println(charName + ", " + characterClass.getType());
+        System.out.println(charName + ", " + characterClass.getType() + ", " + hitpoints + " hitpoints");
     }
 
 }
