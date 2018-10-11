@@ -25,7 +25,7 @@ public class NameHandler extends DefaultHandler {
         if (qName.equalsIgnoreCase("names")) {
             if (names == null) {
                 names = new ArrayList<ArrayList<String>>();
-                for (int i=0; i<3; i++) {
+                for (int i=0; i<2; i++) {
                     names.add(new ArrayList<String>());
                 }
             }
@@ -43,8 +43,6 @@ public class NameHandler extends DefaultHandler {
                 names.get(0).add(name);
             } else if (gender.contentEquals("female")) {
                 names.get(1).add(name);
-            } else if (gender.contentEquals("neutral")) {
-                names.get(2).add(name);
             }
         }
     }
