@@ -1,5 +1,6 @@
 package XMLHandler;
 
+import Equipment.Armor.Armor;
 import Main.CharacterClass;
 
 import javax.xml.parsers.SAXParser;
@@ -15,7 +16,7 @@ public class XMLDataReader {
 
         SAXParserFactory saxParserFactory = SAXParserFactory.newInstance();
         File namesFile = new File("src/main/resources/character_names.xml");
-        List<ArrayList<String>> characterNames = new ArrayList<ArrayList<String>>();
+        List<ArrayList<String>> characterNames = new ArrayList<>();
 
         try {
             SAXParser nameParser = saxParserFactory.newSAXParser();
@@ -32,7 +33,7 @@ public class XMLDataReader {
 
     public List<CharacterClass> getCharacterClasses() {
 
-        List<CharacterClass> classes  = new ArrayList<CharacterClass>();
+        List<CharacterClass> classes = new ArrayList<>();
         SAXParserFactory saxParserFactory = SAXParserFactory.newInstance();
 
         try {
@@ -46,5 +47,22 @@ public class XMLDataReader {
             e.printStackTrace();
         }
         return classes;
+    }
+
+    public List<Armor> getArmorEquipment() {
+        List<Armor> armors = null;
+        SAXParserFactory saxParserFactory = SAXParserFactory.newInstance();
+
+        try {
+            SAXParser armorParser = saxParserFactory.newSAXParser();
+            File armorFile = new File("src/main/resources/equipment_armors.xml");
+            ArmorHandler armorHandler = new ArmorHandler();
+            armorParser.parse(armorFile, armorHandler);
+            armors = armorHandler.getArmors();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return armors;
     }
 }

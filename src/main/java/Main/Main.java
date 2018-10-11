@@ -1,12 +1,8 @@
 package Main;
 
-import XMLHandler.CharacterClassHandler;
-import XMLHandler.NameHandler;
+import Equipment.Armor.Armor;
 import XMLHandler.XMLDataReader;
 
-import javax.xml.parsers.SAXParser;
-import javax.xml.parsers.SAXParserFactory;
-import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -19,8 +15,8 @@ public class Main {
         XMLDataReader xmlReader = new XMLDataReader();
         List<ArrayList<String>> characterNames = xmlReader.getCharacterNames();
         List<CharacterClass> classes = xmlReader.getCharacterClasses();
-        List<Character> characterList = new ArrayList<Character>();
-
+        List<Armor> armors = xmlReader.getArmorEquipment();
+        List<Character> characterList = new ArrayList<>();
 
         for (int i = 0; i < 20; i++) {
             Random rnd = new Random();
@@ -47,8 +43,6 @@ public class Main {
         for (Character character : characterList) {
             character.printCharacterInfo();
         }
-        int i = 1;
-
     }
 }
 

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<armors>
+    <armor type="light" slot="head">
+        <name>Cloth Cap</name>
+        <protections>
+            <protection type="slash">1</protection>
+            <protection type="stab">1</protection>
+        </protections>
+    </armor>
+    <armor type="medium" slot="head">
+        <name>Leather Cap</name>
+        <protections>
+            <protection type="slash">2</protection>
+            <protection type="stab">2</protection>
+        </protections>
+    </armor>
+    <armor type="medium" slot="head">
+        <name>Chain Hood</name>
+        <protections>
+            <protection type="slash">4</protection>
+            <protection type="stab">2</protection>
+        </protections>
+    </armor>
+    <armor type="heavy" slot="head">
+        <name>Iron Helmet</name>
+        <protections>
+            <protection type="slash">5</protection>
+            <protection type="stab">3</protection>
+        </protections>
+    </armor>
+    <armor type="heavy" slot="head">
+        <name>Steel Helmet</name>
+        <protections>
+            <protection type="slash">6</protection>
+            <protection type="stab">4</protection>
+        </protections>
+    </armor>
+</armors>
