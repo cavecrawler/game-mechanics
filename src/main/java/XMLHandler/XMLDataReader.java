@@ -1,6 +1,7 @@
 package XMLHandler;
 
 import Equipment.Armor.Armor;
+import Equipment.Weapon.Weapon;
 import Main.CharacterClass;
 
 import javax.xml.parsers.SAXParser;
@@ -64,5 +65,22 @@ public class XMLDataReader {
         }
 
         return armors;
+    }
+
+    public List<Weapon> getWeaponEquipment() {
+        List<Weapon> weapons = null;
+        SAXParserFactory saxParserFactory = SAXParserFactory.newInstance();
+
+        try {
+            SAXParser weaponParser = saxParserFactory.newSAXParser();
+            File weaponFile = new File("src/main/resources/equipment_weapons.xml");
+            WeaponHandler weaponHandler = new WeaponHandler();
+            weaponParser.parse(weaponFile, weaponHandler);
+            weapons = weaponHandler.getWeapons();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return weapons;
     }
 }
