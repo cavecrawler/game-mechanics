@@ -4,7 +4,6 @@ import Equipment.Armor.Armor;
 import Equipment.Armor.ArmorSlot;
 import Equipment.Armor.ArmorType;
 import org.xml.sax.Attributes;
-import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
 
 import java.util.ArrayList;

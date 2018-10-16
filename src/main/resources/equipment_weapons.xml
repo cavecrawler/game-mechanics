@@ -1,1 +1,21 @@
 <?xml version="1.0" encoding="utf-8" ?>
+<weapons>
+    <weapon type="sword" slot="one-hand">
+        <name>Wooden Sword</name>
+        <damages>
+            <damage type="slash">1</damage>
+        </damages>
+    </weapon>
+    <weapon type="pole-arm" slot="two-hand">
+        <name>Wooden Pike</name>
+        <damages>
+            <damage type="stab">2</damage>
+        </damages>
+    </weapon>
+    <weapon type="mace" slot="main-hand">
+        <name>Wooden Club</name>
+        <damages>
+            <damage type="blunt">2</damage>
+        </damages>
+    </weapon>
+</weapons>

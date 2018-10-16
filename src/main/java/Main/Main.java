@@ -1,6 +1,7 @@
 package Main;
 
 import Equipment.Armor.Armor;
+import Equipment.Weapon.Weapon;
 import XMLHandler.XMLDataReader;
 
 import java.util.ArrayList;
@@ -16,6 +17,7 @@ public class Main {
         List<ArrayList<String>> characterNames = xmlReader.getCharacterNames();
         List<CharacterClass> classes = xmlReader.getCharacterClasses();
         List<Armor> armors = xmlReader.getArmorEquipment();
+        List<Weapon> weapons = xmlReader.getWeaponEquipment();
         List<Character> characterList = new ArrayList<>();
 
         for (int i = 0; i < 20; i++) {
