@@ -1,7 +1,7 @@
 package Equipment.Weapon;
 
 public enum WeaponType {
-    SWORD("sword"), MACE("mace"), POLE_ARM("pole-arm");
+    DAGGER("dagger"), SWORD("sword"), MACE("mace"), POLE_ARM("pole-arm"), STAFF("staff"), WAND("wand");
 
     private String identifier;
 

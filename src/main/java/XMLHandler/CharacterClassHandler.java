@@ -1,5 +1,7 @@
 package XMLHandler;
 
+import Equipment.Armor.ArmorType;
+import Equipment.Weapon.WeaponType;
 import Main.CharacterClass;
 import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
@@ -35,6 +37,10 @@ public class CharacterClassHandler extends DefaultHandler {
             bHitpoints = true;
         } else if (qName.equalsIgnoreCase("mana")) {
             bMana = true;
+        } else if (qName.equalsIgnoreCase("armor")) {
+            characterClass.getArmorProficiencies().add(ArmorType.fromString(attributes.getValue("type")));
+        } else if (qName.equalsIgnoreCase("weapon")) {
+            characterClass.getWeaponProficiencies().add(WeaponType.fromString(attributes.getValue("type")));
         }
     }
 
@@ -49,13 +55,13 @@ public class CharacterClassHandler extends DefaultHandler {
     public void characters(char[] ch, int start, int length) throws SAXException {
 
         if (bAttributes) {
-            characterClass.setAttribute(new String(ch,start,length));
+            characterClass.setAttribute(new String(ch, start, length));
             bAttributes = false;
         } else if (bHitpoints) {
-            characterClass.setHitpoints(Integer.parseInt(new String(ch,start,length)));
+            characterClass.setHitpoints(Integer.parseInt(new String(ch, start, length)));
             bHitpoints = false;
         } else if (bMana) {
-            characterClass.setMana(Integer.parseInt(new String(ch,start,length)));
+            characterClass.setMana(Integer.parseInt(new String(ch, start, length)));
             bMana = false;
         }
     }

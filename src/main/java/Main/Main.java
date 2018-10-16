@@ -22,7 +22,6 @@ public class Main {
 
         for (int i = 0; i < 20; i++) {
             Random rnd = new Random();
-            Character character = new Character();
             String gender = null;
             switch (rnd.nextInt(2)) {
                 case 0:
@@ -32,13 +31,19 @@ public class Main {
                     gender = "female";
                     break;
             }
-            character.setCharGender(gender);
+            Character character = new Character(gender, classes.get(rnd.nextInt(classes.size())));
             if (gender.contentEquals("male")) {
-                character.setCharName(characterNames.get(0).get(rnd.nextInt(characterNames.get(0).size())));
+                character.setName(characterNames.get(0).get(rnd.nextInt(characterNames.get(0).size())));
             } else if (gender.contentEquals("female")) {
-                character.setCharName(characterNames.get(1).get(rnd.nextInt(characterNames.get(1).size())));
+                character.setName(characterNames.get(1).get(rnd.nextInt(characterNames.get(1).size())));
             }
-            character.setCharacterClass(classes.get(rnd.nextInt(classes.size())));
+
+            // try to equip an armor
+            character.equip(armors.get(0));
+
+            // try to equip a weapon
+            character.equip(weapons.get(0));
+
             characterList.add(character);
         }
 
