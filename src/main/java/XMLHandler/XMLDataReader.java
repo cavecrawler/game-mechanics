@@ -1,5 +1,6 @@
 package XMLHandler;
 
+import Character.Attributes.Gender;
 import Equipment.Armor.Armor;
 import Equipment.Weapon.Weapon;
 import Main.CharacterClass;
@@ -8,16 +9,18 @@ import javax.xml.parsers.SAXParser;
 import javax.xml.parsers.SAXParserFactory;
 import java.io.File;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class XMLDataReader {
 
 
-    public List<ArrayList<String>> getCharacterNames() {
+    public Map<Gender, List<String>> getCharacterNames() {
 
         SAXParserFactory saxParserFactory = SAXParserFactory.newInstance();
         File namesFile = new File("src/main/resources/character_names.xml");
-        List<ArrayList<String>> characterNames = new ArrayList<>();
+        Map<Gender, List<String>> characterNames = new HashMap<>();
 
         try {
             SAXParser nameParser = saxParserFactory.newSAXParser();

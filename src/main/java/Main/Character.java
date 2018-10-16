@@ -1,5 +1,6 @@
 package Main;
 
+import Character.Attributes.Gender;
 import Equipment.Armor.Armor;
 import Equipment.Armor.ArmorSlot;
 import Equipment.Weapon.Weapon;
@@ -11,13 +12,13 @@ import java.util.Map;
 public class Character {
 
     private String name;
-    private String gender;
+    private Gender gender;
     private CharacterClass characterClass;
     private int hitpoints;
     private Map<ArmorSlot, Armor> equippedArmors;
     private Map<WeaponSlot, Weapon> equippedWeapons;
 
-    public Character(String gender, CharacterClass characterClass) {
+    public Character(Gender gender, CharacterClass characterClass) {
         this.gender = gender;
         this.characterClass = characterClass;
         hitpoints = characterClass.getHitpoints();
@@ -41,7 +42,7 @@ public class Character {
         }
     }
 
-    public String getGender() {
+    public Gender getGender() {
         return gender;
     }
 
