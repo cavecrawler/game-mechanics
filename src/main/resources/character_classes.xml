@@ -5,15 +5,39 @@
         <attribute>Dexterity</attribute>
         <hitpoints>90</hitpoints>
         <mana>50</mana>
+        <proficiencies>
+            <armor type="light"/>
+            <armor type="medium"/>
+            <weapon type="dagger"/>
+            <weapon type="sword"/>
+            <weapon type="mace"/>
+        </proficiencies>
     </class>
     <class type="Warrior">
         <attribute>Strength</attribute>
         <hitpoints>110</hitpoints>
         <mana>30</mana>
+        <proficiencies>
+            <armor type="light"/>
+            <armor type="medium"/>
+            <armor type="heavy"/>
+            <weapon type="dagger"/>
+            <weapon type="sword"/>
+            <weapon type="mace"/>
+            <weapon type="pole-arm"/>
+            <weapon type="staff"/>
+        </proficiencies>
     </class>
     <class type="Mage">
         <attribute>Intelligence</attribute>
         <hitpoints>80</hitpoints>
         <mana>100</mana>
+        <proficiencies>
+            <armor type="light"/>
+            <weapon type="dagger"/>
+            <weapon type="sword"/>
+            <weapon type="staff"/>
+            <weapon type="wand"/>
+        </proficiencies>
     </class>
 </classes>
