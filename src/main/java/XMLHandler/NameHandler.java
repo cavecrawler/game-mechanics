@@ -1,21 +1,25 @@
 package XMLHandler;
 
+import Character.Attributes.Gender;
 import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 
 public class NameHandler extends DefaultHandler {
 
-    private ArrayList<ArrayList<String>> names;
-    private String gender;
+    private Map<Gender, List<String>> names;
+    private Gender currentGender;
     private String name;
     boolean bName = false;
 
 
-    public ArrayList<ArrayList<String>> getNamesList() {
+    public Map<Gender, List<String>> getNamesList() {
         return names;
     }
 
@@ -24,13 +28,13 @@ public class NameHandler extends DefaultHandler {
     public void startElement(String uri, String localName, String qName, Attributes attributes) throws SAXException {
         if (qName.equalsIgnoreCase("names")) {
             if (names == null) {
-                names = new ArrayList<ArrayList<String>>();
-                for (int i=0; i<2; i++) {
-                    names.add(new ArrayList<String>());
+                names = new HashMap<Gender, List<String>>();
+                for (Gender g : Gender.values()) {
+                    names.put(g, new ArrayList<String>());
                 }
             }
         } else if (qName.equalsIgnoreCase("name")) {
-            gender = attributes.getValue("gender");
+            currentGender = Gender.fromString(attributes.getValue("gender"));
             bName = true;
         }
     }
@@ -39,11 +43,7 @@ public class NameHandler extends DefaultHandler {
     public void endElement(String uri, String localName, String qName) throws SAXException {
         if (qName.equalsIgnoreCase("name")) {
 
-            if (gender.contentEquals("male")) {
-                names.get(0).add(name);
-            } else if (gender.contentEquals("female")) {
-                names.get(1).add(name);
-            }
+            names.get(currentGender).add(name);
         }
     }
 
