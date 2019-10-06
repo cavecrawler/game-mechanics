@@ -8,6 +8,7 @@ import Equipment.Weapon.WeaponSlot;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 public class Character {
 
@@ -59,7 +60,15 @@ public class Character {
     }
 
     public void printCharacterInfo() {
-        System.out.println(name + ", " + characterClass.getType() + ", " + hitpoints + " hitpoints");
+        String armorString = equippedArmors.entrySet().stream().map((e)->{
+            return e.getValue().getName();
+        }).collect(Collectors.joining(", "));
+
+        String weaponString = equippedWeapons.entrySet().stream().map((e)->{
+            return e.getValue().getName();
+        }).collect(Collectors.joining(", "));
+
+        System.out.println(name + ", " + characterClass.getType() + ", " + hitpoints + " hitpoints, wearing " + armorString + " and " + weaponString);
     }
 
 }

@@ -1,7 +1,7 @@
 package Equipment.Armor;
 
 public enum ArmorSlot {
-    HEAD("head"), SHOULDER("shoulder"), CHEST("chest"), HAND("hand"), LEG("leg"), FOOT("foot");
+    HEAD("head"), SHOULDER("shoulder"), CHEST("chest"), HAND("hand"), LEG("leg"), FEET("feet");
 
     private String identifier;
 
