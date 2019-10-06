@@ -18,4 +18,10 @@
             <damage type="blunt">2</damage>
         </damages>
     </weapon>
+    <weapon type="staff" slot="two-hand">
+        <name>Crooked Staff</name>
+        <damages>
+            <damage type="blunt">3</damage>
+        </damages>
+    </weapon>
 </weapons>

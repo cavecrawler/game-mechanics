@@ -35,4 +35,21 @@
             <protection type="stab">4</protection>
         </protections>
     </armor>
+
+    <!-- Chest Armor -->
+    <armor type="heavy" slot="chest">
+        <name>Chainmail</name>
+        <protections>
+            <protection type="slash">7</protection>
+            <protection type="stab">7</protection>
+            <protection type="blunt">1</protection>
+        </protections>
+    </armor>
+    <armor type="light" slot="chest">
+        <name>Tunic</name>
+        <protections>
+            <protection type="slash">2</protection>
+            <protection type="stab">3</protection>
+        </protections>
+    </armor>
 </armors>

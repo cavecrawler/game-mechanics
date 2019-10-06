@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.Random;
+import java.util.stream.Collectors;
 
 public class CharacterGenerator {
 
@@ -29,13 +30,33 @@ public class CharacterGenerator {
             character.setName(characterNames.get(gender).get(rnd.nextInt(characterNames.get(gender).size())));
 
             // try to equip an armor
-            character.equip(armors.get(0));
+            List<Armor> equippableArmors = getEquippableArmors(character, armors);
+            character.equip(equippableArmors.get(rnd.nextInt(equippableArmors.size())));
 
             // try to equip a weapon
-            character.equip(weapons.get(0));
+            List<Weapon> equippableWeapons = getEquippableWeapons(character, weapons);
+            character.equip(equippableWeapons.get(rnd.nextInt(equippableWeapons.size())));
 
             characterList.add(character);
         }
         return characterList;
+    }
+
+    private List<Armor> getEquippableArmors(Character character, List<Armor> armors) {
+        // filters given Armor List for proficiencies
+        List<Armor> equippableArmors = armors.stream().filter(aSingleArmor->{
+            return character.getCharacterClass().getArmorProficiencies().contains(aSingleArmor.getType());
+        }).collect(Collectors.toList());
+
+        return equippableArmors;
+    }
+
+    private List<Weapon> getEquippableWeapons(Character character, List<Weapon> weapons) {
+        // filters given Armor List for proficiencies
+        List<Weapon> equippableWeapons = weapons.stream().filter(aSingleWeapon->{
+            return character.getCharacterClass().getWeaponProficiencies().contains(aSingleWeapon.getType());
+        }).collect(Collectors.toList());
+
+        return equippableWeapons;
     }
 }
