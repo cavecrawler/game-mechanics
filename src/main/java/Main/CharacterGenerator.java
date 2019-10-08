@@ -13,7 +13,7 @@ import java.util.stream.Collectors;
 
 public class CharacterGenerator {
 
-    public List<Character> getRandomCharacterList(int numberOfCharacters) {
+    public List<Character> getRandomCharacters(int numberOfCharacters) {
         List<Character> characterList = new ArrayList<>();
         XMLDataReader xmlReader = new XMLDataReader();
         Map<Gender, List<String>> characterNames = xmlReader.getCharacterNames();
@@ -23,8 +23,9 @@ public class CharacterGenerator {
 
         for (int i = 0; i < numberOfCharacters; i++) {
             Random rnd = new Random();
-            Gender gender = rnd.nextInt(2) == 0 ? Gender.MALE : Gender.FEMALE;
-
+            Gender male = Gender.MALE;
+            Gender female = Gender.FEMALE;
+            Gender gender = rnd.nextInt(2) == 0 ? male : female;
 
             Character character = new Character(gender, classes.get(rnd.nextInt(classes.size())));
             character.setName(characterNames.get(gender).get(rnd.nextInt(characterNames.get(gender).size())));
@@ -44,7 +45,7 @@ public class CharacterGenerator {
 
     private List<Armor> getEquippableArmors(Character character, List<Armor> armors) {
         // filters given Armor List for proficiencies
-        List<Armor> equippableArmors = armors.stream().filter(aSingleArmor->{
+        List<Armor> equippableArmors = armors.stream().filter(aSingleArmor -> {
             return character.getCharacterClass().getArmorProficiencies().contains(aSingleArmor.getType());
         }).collect(Collectors.toList());
 
@@ -53,7 +54,7 @@ public class CharacterGenerator {
 
     private List<Weapon> getEquippableWeapons(Character character, List<Weapon> weapons) {
         // filters given Armor List for proficiencies
-        List<Weapon> equippableWeapons = weapons.stream().filter(aSingleWeapon->{
+        List<Weapon> equippableWeapons = weapons.stream().filter(aSingleWeapon -> {
             return character.getCharacterClass().getWeaponProficiencies().contains(aSingleWeapon.getType());
         }).collect(Collectors.toList());
 
