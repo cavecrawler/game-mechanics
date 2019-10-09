@@ -2,7 +2,7 @@ package Character;
 
 import java.util.Map;
 
-import Equipment.DamageType;
+import Mechanics.DamageType;
 
 public class Defense {
 

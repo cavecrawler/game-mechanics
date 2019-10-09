@@ -5,20 +5,16 @@ import Mechanics.DamageType;
 import Mechanics.Equipment.Weapon.Weapon;
 import Mechanics.Equipment.Weapon.WeaponSlot;
 import Mechanics.Equipment.Weapon.WeaponType;
-import Mechanics.Protection;
 import org.xml.sax.Attributes;
 import org.xml.sax.helpers.DefaultHandler;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 public class WeaponHandler extends DefaultHandler {
 
     private List<Weapon> weapons;
     private Weapon currentWeapon;
-    private Map<DamageType, Integer> damages;
-    private Map<DamageType, Integer> protections;
     private int currentDamageValue;
     private int currentProtectionValue;
     private DamageType currentDamageType;
