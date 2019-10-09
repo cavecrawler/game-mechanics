@@ -1,6 +1,9 @@
 package Main;
 
+import Character.Attack;
+import Character.Defense;
 import Character.Attributes.Gender;
+import Mechanics.Equipment.DamageType;
 import Mechanics.Equipment.Armor.Armor;
 import Mechanics.Equipment.Armor.ArmorSlot;
 import Mechanics.Equipment.Weapon.Weapon;
@@ -53,6 +56,35 @@ public class Character {
 
     public int getHitpoints() {
         return hitpoints;
+    }
+
+    public boolean isDead() {
+        return hitpoints <= 0;
+    }
+
+    public Attack attack() {
+        Map<DamageType, Integer> attacks = new HashMap<>();
+
+        // TODO
+        attacks.put(DamageType.BLUNT, 5);
+
+        return new Attack(attacks);
+    }
+
+    public Defense defend() {
+        Map<DamageType, Integer> defenses = new HashMap<>();
+
+        // TODO
+        defenses.put(DamageType.BLUNT, 2);
+
+        return new Defense(defenses);
+    }
+
+    public void receiveDamage(int damage) {
+        if (damage > 0) {
+            hitpoints -= damage;
+            System.out.println(name + " receives " + damage + " damage.");
+        }
     }
 
     public CharacterClass getCharacterClass() {
