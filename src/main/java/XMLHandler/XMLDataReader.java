@@ -1,8 +1,8 @@
 package XMLHandler;
 
 import Character.Attributes.Gender;
-import Equipment.Armor.Armor;
-import Equipment.Weapon.Weapon;
+import Mechanics.Equipment.Armor.Armor;
+import Mechanics.Equipment.Weapon.Weapon;
 import Main.CharacterClass;
 
 import javax.xml.parsers.SAXParser;

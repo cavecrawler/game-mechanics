@@ -1,13 +1,11 @@
-package Equipment.Armor;
+package Mechanics;
 
-import Equipment.DamageType;
-
-public class Protection {
+public class Damage {
 
     private DamageType damageType;
     private int value;
 
-    public Protection(DamageType damageType, int value) {
+    public Damage(DamageType damageType, int value) {
         this.damageType = damageType;
         this.value = value;
     }

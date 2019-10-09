@@ -1,6 +1,7 @@
-package Equipment.Armor;
+package Mechanics.Equipment.Armor;
 
-import Equipment.DamageType;
+import Mechanics.Damage;
+import Mechanics.DamageType;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -34,8 +35,12 @@ public class Armor {
         return slot;
     }
 
-    public void addProtection(Protection protection) {
+    public void addProtection(Damage protection) {
         int currentProtection = protections.getOrDefault(protection.getDamageType(), 0);
         protections.put(protection.getDamageType(), currentProtection + protection.getValue());
+    }
+
+    public Map<DamageType, Integer> getProtections() {
+        return protections;
     }
 }

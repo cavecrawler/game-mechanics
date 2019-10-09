@@ -8,7 +8,7 @@ public class Main {
 
 
         CharacterGenerator characterGenerator = new CharacterGenerator();
-        List<Character> characterList = characterGenerator.getRandomCharacterList(10);
+        List<Character> characterList = characterGenerator.getRandomCharacterList(2);
 
         for (Character character : characterList) {
             character.printCharacterInfo();
