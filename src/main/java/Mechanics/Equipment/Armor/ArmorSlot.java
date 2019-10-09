@@ -1,4 +1,4 @@
-package Equipment.Armor;
+package Mechanics.Equipment.Armor;
 
 public enum ArmorSlot {
     HEAD("head"), SHOULDER("shoulder"), CHEST("chest"), HAND("hand"), LEG("leg"), FEET("feet");
