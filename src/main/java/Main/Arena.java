@@ -3,7 +3,7 @@ package Main;
 import java.util.Map;
 import Character.Attack;
 import Character.Defense;
-import Equipment.DamageType;
+import Mechanics.DamageType;
 
 /**
  * Arena with fixed timestep loop

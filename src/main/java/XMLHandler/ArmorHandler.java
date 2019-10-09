@@ -4,7 +4,6 @@ import Mechanics.Damage;
 import Mechanics.Equipment.Armor.Armor;
 import Mechanics.Equipment.Armor.ArmorSlot;
 import Mechanics.Equipment.Armor.ArmorType;
-import Mechanics.Protection;
 import Mechanics.DamageType;
 import org.xml.sax.Attributes;
 import org.xml.sax.helpers.DefaultHandler;

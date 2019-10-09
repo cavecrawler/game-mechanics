@@ -3,7 +3,7 @@ package Main;
 import Character.Attack;
 import Character.Defense;
 import Character.Attributes.Gender;
-import Mechanics.Equipment.DamageType;
+import Mechanics.DamageType;
 import Mechanics.Equipment.Armor.Armor;
 import Mechanics.Equipment.Armor.ArmorSlot;
 import Mechanics.Equipment.Weapon.Weapon;
