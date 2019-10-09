@@ -1,4 +1,4 @@
-package Equipment.Armor;
+package Mechanics.Equipment.Armor;
 
 public enum ArmorType {
     LIGHT("light"), MEDIUM("medium"), HEAVY("heavy");

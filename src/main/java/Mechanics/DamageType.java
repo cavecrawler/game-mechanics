@@ -1,7 +1,7 @@
-package Equipment;
+package Mechanics;
 
 public enum DamageType {
-    BLUNT("blunt"), STAB("stab"), SLASH("slash"), BURN("burn"), FREEZE("freeze");
+    ALL("all"), BLUNT("blunt"), STAB("stab"), SLASH("slash"), BURN("burn"), FREEZE("freeze");
 
     private String identifier;
 

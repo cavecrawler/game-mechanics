@@ -3,11 +3,11 @@ package Main;
 import Character.Attack;
 import Character.Defense;
 import Character.Attributes.Gender;
-import Equipment.DamageType;
-import Equipment.Armor.Armor;
-import Equipment.Armor.ArmorSlot;
-import Equipment.Weapon.Weapon;
-import Equipment.Weapon.WeaponSlot;
+import Mechanics.Equipment.DamageType;
+import Mechanics.Equipment.Armor.Armor;
+import Mechanics.Equipment.Armor.ArmorSlot;
+import Mechanics.Equipment.Weapon.Weapon;
+import Mechanics.Equipment.Weapon.WeaponSlot;
 
 import java.util.HashMap;
 import java.util.Map;

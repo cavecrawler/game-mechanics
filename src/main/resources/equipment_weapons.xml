@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <weapons>
-    <weapon type="sword" slot="one-hand">
+    <weapon type="sword" slot="main-hand">
         <name>Wooden Sword</name>
         <damages>
             <damage type="slash">1</damage>
@@ -23,5 +23,11 @@
         <damages>
             <damage type="blunt">3</damage>
         </damages>
+    </weapon>
+    <weapon type="shield" slot="off-hand">
+        <name>Wood Shield</name>
+        <protections>
+            <protection type="blunt">3</protection>
+        </protections>
     </weapon>
 </weapons>

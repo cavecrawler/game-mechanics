@@ -1,4 +1,4 @@
-package Equipment.Weapon;
+package Mechanics.Equipment.Weapon;
 
 public enum WeaponSlot {
     ONE_HAND("one-hand"), TWO_HAND("two-hand"), MAIN_HAND("main-hand"), OFF_HAND("off-hand");

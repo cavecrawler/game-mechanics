@@ -1,10 +1,11 @@
 package XMLHandler;
 
-import Equipment.Armor.Armor;
-import Equipment.Armor.ArmorSlot;
-import Equipment.Armor.ArmorType;
-import Equipment.Armor.Protection;
-import Equipment.DamageType;
+import Mechanics.Damage;
+import Mechanics.Equipment.Armor.Armor;
+import Mechanics.Equipment.Armor.ArmorSlot;
+import Mechanics.Equipment.Armor.ArmorType;
+import Mechanics.Protection;
+import Mechanics.DamageType;
 import org.xml.sax.Attributes;
 import org.xml.sax.helpers.DefaultHandler;
 
@@ -47,7 +48,7 @@ public class ArmorHandler extends DefaultHandler {
         if (qName.equalsIgnoreCase("armor")) {
             armors.add(currentArmor);
         } else if (qName.equalsIgnoreCase("protection")) {
-            currentArmor.addProtection(new Protection(currentProtectionType, currentProtectionValue));
+            currentArmor.addProtection(new Damage(currentProtectionType, currentProtectionValue));
         }
     }
 

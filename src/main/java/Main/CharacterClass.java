@@ -1,7 +1,7 @@
 package Main;
 
-import Equipment.Armor.ArmorType;
-import Equipment.Weapon.WeaponType;
+import Mechanics.Equipment.Armor.ArmorType;
+import Mechanics.Equipment.Weapon.WeaponType;
 
 import java.util.ArrayList;
 import java.util.List;
