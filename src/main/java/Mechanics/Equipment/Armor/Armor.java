@@ -11,11 +11,13 @@ public class Armor {
     private ArmorType type;
     private ArmorSlot slot;
     private String name;
+    private int value;
     private Map<DamageType, Integer> protections;
 
-    public Armor(ArmorType type, ArmorSlot slot) {
+    public Armor(ArmorType type, ArmorSlot slot, int value) {
         this.type = type;
         this.slot = slot;
+        this.value = value;
         protections = new HashMap<>();
     }
 
@@ -33,6 +35,10 @@ public class Armor {
 
     public ArmorSlot getSlot() {
         return slot;
+    }
+
+    public int getValue() {
+        return value;
     }
 
     public void addProtection(Damage protection) {
