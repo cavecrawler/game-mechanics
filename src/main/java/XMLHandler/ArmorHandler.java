@@ -33,7 +33,8 @@ public class ArmorHandler extends DefaultHandler {
         if (qName.equalsIgnoreCase("armor")) {
             ArmorSlot as = ArmorSlot.fromString(attributes.getValue("slot"));
             ArmorType at = ArmorType.fromString(attributes.getValue("type"));
-            currentArmor = new Armor(at, as);
+            int av = Integer.parseInt(attributes.getValue("value"));
+            currentArmor = new Armor(at, as, av);
         } else if (qName.equalsIgnoreCase("name")) {
             nameContext = true;
         } else if (qName.equalsIgnoreCase("protection")) {

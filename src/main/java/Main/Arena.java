@@ -13,6 +13,9 @@ public class Arena {
     private static final int TICKS = 20;
     private static final long MS_PER_TICK = 1000 / TICKS;
 
+    private static final int ARMOR_CAP = 250;
+    private static final float MAX_DAMAGE_REDUCTION = 1.75f;
+
     private boolean running = true;
 
     private Character charOne;
@@ -21,6 +24,10 @@ public class Arena {
     public void populateCharacters(Character first, Character second) {
         charOne = first;
         charTwo = second;
+
+        System.out.println("These heroes have entered the Arena:");
+        charOne.printCharacterInfo();
+        charTwo.printCharacterInfo();
     }
 
     public void update() {
@@ -47,9 +54,14 @@ public class Arena {
 
     private int fight(Attack attack, Defense defense) {
         int resultDamage = 0;
-        for(Map.Entry<DamageType, Integer> damage : attack.getAttacks().entrySet()) {
-            int damageTypeDefense = defense.getDefenses().getOrDefault(damage.getKey(), 0);
-            resultDamage += Math.max(0, damage.getValue() - damageTypeDefense);
+        for (Map.Entry<DamageType, Integer> damage : attack.getAttacks().entrySet()) {
+            int damageTypeDefense = defense.getSpecialDefenses().getOrDefault(damage.getKey(),
+                    defense.getBaseDefense());
+            int finalDamageTypeDefense = Math.min(damageTypeDefense, ARMOR_CAP);
+
+            float finalDamageReduction = ((float) finalDamageTypeDefense / ARMOR_CAP) * MAX_DAMAGE_REDUCTION;
+
+            resultDamage += Math.ceil(finalDamageReduction * damage.getValue());
         }
         return resultDamage;
     }

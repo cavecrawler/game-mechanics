@@ -63,27 +63,45 @@ public class Character {
     }
 
     public Attack attack() {
-        Map<DamageType, Integer> attacks = new HashMap<>();
+        Attack attack = new Attack();
 
-        // TODO
-        attacks.put(DamageType.BLUNT, 5);
+        for (Map.Entry<WeaponSlot, Weapon> weapon : equippedWeapons.entrySet()) {
+            for (Map.Entry<DamageType, Integer> damage : weapon.getValue().getDamages().entrySet()) {
+                attack.addAttack(damage.getKey(), damage.getValue());
+            }
+        }
 
-        return new Attack(attacks);
+        return attack;
     }
 
     public Defense defend() {
-        Map<DamageType, Integer> defenses = new HashMap<>();
+        Defense defense = new Defense();
 
-        // TODO
-        defenses.put(DamageType.BLUNT, 2);
+        // get protections of weapons
+        for (Map.Entry<WeaponSlot, Weapon> weapon : equippedWeapons.entrySet()) {
+            for (Map.Entry<DamageType, Integer> damage : weapon.getValue().getProtections().entrySet()) {
+                defense.addSpecialDefense(damage.getKey(), damage.getValue());
+            }
+        }
 
-        return new Defense(defenses);
+        // get armor protections
+        for (Map.Entry<ArmorSlot, Armor> armor : equippedArmors.entrySet()) {
+            int baseArmorValue = armor.getValue().getValue();
+            defense.addBaseDefense(baseArmorValue);
+            for (Map.Entry<DamageType, Integer> damage : armor.getValue().getProtections().entrySet()) {
+                defense.addSpecialDefense(damage.getKey(), baseArmorValue * damage.getValue());
+            }
+        }
+
+        return defense;
     }
 
     public void receiveDamage(int damage) {
         if (damage > 0) {
             hitpoints -= damage;
             System.out.println(name + " receives " + damage + " damage.");
+        } else {
+            System.out.println(name + " was hit but received no damage.");
         }
     }
 
@@ -92,15 +110,16 @@ public class Character {
     }
 
     public void printCharacterInfo() {
-        String armorString = equippedArmors.entrySet().stream().map((e)->{
+        String armorString = equippedArmors.entrySet().stream().map((e) -> {
             return e.getValue().getName();
         }).collect(Collectors.joining(", "));
 
-        String weaponString = equippedWeapons.entrySet().stream().map((e)->{
+        String weaponString = equippedWeapons.entrySet().stream().map((e) -> {
             return e.getValue().getName();
         }).collect(Collectors.joining(", "));
 
-        System.out.println(name + ", " + characterClass.getType() + ", " + hitpoints + " hitpoints, wearing " + armorString + " and " + weaponString);
+        System.out.println(name + ", " + characterClass.getType() + ", " + hitpoints + " hitpoints, wearing "
+                + armorString + " and " + weaponString);
     }
 
 }
