@@ -2,6 +2,7 @@
 Features:
 - XML based database structure
 - several character features for configurable (random) creation
+- unique arena system, where characters will face epic battles
 
 ## Install and run
 

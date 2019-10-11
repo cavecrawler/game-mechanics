@@ -4,6 +4,7 @@ import Character.Attributes.Gender;
 import Mechanics.Equipment.Armor.Armor;
 import Mechanics.Equipment.Weapon.Weapon;
 import Main.CharacterClass;
+import Mechanics.Skills.Skill;
 
 import javax.xml.parsers.SAXParser;
 import javax.xml.parsers.SAXParserFactory;
@@ -85,5 +86,22 @@ public class XMLDataReader {
         }
 
         return weapons;
+    }
+
+    public List<Skill> getSkills() {
+        List<Skill> skills = null;
+        SAXParserFactory saxParserFactory = SAXParserFactory.newInstance();
+
+        try {
+            SAXParser skillParser = saxParserFactory.newSAXParser();
+            File skillFile = new File("src/main/resources/character_spells.xml");
+            CharacterSpellsHandler characterSpellsHandler = new CharacterSpellsHandler();
+            skillParser.parse(skillFile, characterSpellsHandler);
+            skills = characterSpellsHandler.getSkills();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return skills;
     }
 }

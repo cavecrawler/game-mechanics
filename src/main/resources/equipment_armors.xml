@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <armors>
+    <!-- Head Armor -->
     <armor type="light" slot="head" value="10">
         <name>Cloth Cap</name>
     </armor>
@@ -48,4 +49,41 @@
             <protection type="blunt">1</protection>
         </protections>
     </armor>
+
+    <!-- Shoulder Armor -->
+    <armor type="light" slot="shoulder" value="5">
+        <name>Wooly Shoulderpads</name>
+        <protections>
+            <protection type="slash">2</protection>
+            <protection type="stab">3</protection>
+        </protections>
+    </armor>
+
+    <!-- Hand Armor -->
+    <armor type="light" slot="hand" value="5">
+        <name>Soft Gloves</name>
+        <protections>
+            <protection type="slash">2</protection>
+            <protection type="stab">3</protection>
+        </protections>
+    </armor>
+
+    <!-- Leg Armor -->
+    <armor type="light" slot="leg" value="5">
+        <name>Fine Legwear</name>
+        <protections>
+            <protection type="slash">2</protection>
+            <protection type="stab">3</protection>
+        </protections>
+    </armor>
+
+    <!-- Feet Armor -->
+    <armor type="light" slot="feet" value="5">
+        <name>Light Sandals</name>
+        <protections>
+            <protection type="slash">2</protection>
+            <protection type="stab">3</protection>
+        </protections>
+    </armor>
+
 </armors>

@@ -14,12 +14,18 @@ public class Arena {
     private static final long MS_PER_TICK = 1000 / TICKS;
 
     private static final int ARMOR_CAP = 250;
-    private static final float MAX_DAMAGE_REDUCTION = 1.75f;
+    private static final float MAX_DAMAGE_REDUCTION = 0.75f;
 
     private boolean running = true;
 
     private Character charOne;
     private Character charTwo;
+
+    private ScoreBoard scoreBoard;
+
+    public Arena() {
+        scoreBoard = new ScoreBoard();
+    }
 
     public void populateCharacters(Character first, Character second) {
         charOne = first;
@@ -34,10 +40,10 @@ public class Arena {
         if (charOne.isDead() || charTwo.isDead()) {
             running = false;
             if (charOne.isDead()) {
-                System.out.println(charOne.getName() + " was defeated!");
+                scoreBoard.endRound(charTwo, charOne);
             }
             if (charTwo.isDead()) {
-                System.out.println(charTwo.getName() + " was defeated!");
+                scoreBoard.endRound(charOne, charTwo);
             }
             return;
         }
@@ -61,7 +67,7 @@ public class Arena {
 
             float finalDamageReduction = ((float) finalDamageTypeDefense / ARMOR_CAP) * MAX_DAMAGE_REDUCTION;
 
-            resultDamage += Math.ceil(finalDamageReduction * damage.getValue());
+            resultDamage += Math.ceil(damage.getValue() * ( 1 - finalDamageReduction ));
         }
         return resultDamage;
     }
