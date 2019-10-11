@@ -1,1 +1,45 @@
-<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="UTF-8" ?>
+<skills>
+    <!-- Skills for ALL classes -->
+    <skill type="all" cooldown="0.0">
+        <name>Dodge</name>
+        <flavortext>dodges the attack.</flavortext>
+        <protections>
+            <protection type="all">100</protection>
+        </protections>
+    </skill>
+    <skill type="all" cooldown="0.0">
+        <name>Basic Attack</name>
+        <flavortext>deals a blow to the enemy.</flavortext>
+    </skill>
+
+
+    <!-- WARRIOR SKILLS -->
+    <skill type="warrior" cooldown="5.0">
+        <name>Slam</name>
+        <flavortext>slams the enemy with incredible force.</flavortext>
+        <damages>
+            <damage type="blunt">10</damage>
+        </damages>
+    </skill>
+
+    <!-- ROGUE SKILLS -->
+    <skill type="rogue" cooldown="5.0">
+        <name>Backstab</name>
+        <flavortext>stabs the enemy in the back.</flavortext>
+        <damages>
+            <damage type="stab">10</damage>
+        </damages>
+    </skill>
+
+    <!-- MAGE SKILLS -->
+    <skill type="mage" cooldown="3.0">
+        <name>Fireball</name>
+        <flavortext>launches a fiery projectile against the enemy.</flavortext>
+        <damages>
+            <damage type="burn">8</damage>
+        </damages>
+    </skill>
+
+
+</skills>

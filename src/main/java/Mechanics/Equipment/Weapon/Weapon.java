@@ -13,7 +13,7 @@ public class Weapon {
     private String name;
     private Map<DamageType, Integer> damages;
     private Map<DamageType, Integer> protections;
-
+    private float weaponSpeed;
 
     public Weapon(WeaponType type, WeaponSlot slot) {
         this.type = type;
@@ -54,5 +54,13 @@ public class Weapon {
 
     public Map<DamageType, Integer> getProtections() {
         return protections;
+    }
+
+    public void setWeaponSpeed(float weaponSpeed) {
+        this.weaponSpeed = weaponSpeed;
+    }
+
+    public float getWeaponSpeed() {
+        return weaponSpeed;
     }
 }

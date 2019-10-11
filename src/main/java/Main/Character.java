@@ -30,10 +30,6 @@ public class Character {
         equippedWeapons = new HashMap<>();
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
     public void equip(Armor armor) {
         if (characterClass.getArmorProficiencies().contains(armor.getType())) {
             equippedArmors.put(armor.getSlot(), armor);
@@ -52,6 +48,14 @@ public class Character {
 
     public String getName() {
         return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public CharacterClass getCharacterClass() {
+        return characterClass;
     }
 
     public int getHitpoints() {
@@ -103,10 +107,6 @@ public class Character {
         } else {
             System.out.println(name + " was hit but received no damage.");
         }
-    }
-
-    public CharacterClass getCharacterClass() {
-        return characterClass;
     }
 
     public void printCharacterInfo() {
