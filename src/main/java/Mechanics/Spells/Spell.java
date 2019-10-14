@@ -1,4 +1,4 @@
-package Mechanics.Skills;
+package Mechanics.Spells;
 
 import Mechanics.Damage;
 import Mechanics.DamageType;
@@ -6,20 +6,28 @@ import Mechanics.DamageType;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Skill {
+public class Spell implements Cloneable {
 
     private String name;
     private String flavortext;
-    private SkillType skillType;
+    private SpellType spellType;
     private float cooldown;
     private Map<DamageType, Integer> damages;
     private Map<DamageType, Integer> protections;
 
-    public Skill(SkillType skillType, float cooldown) {
+    public Spell(SpellType spellType, float cooldown) {
         this.cooldown = cooldown;
-        this.skillType = skillType;
+        this.spellType = spellType;
         damages = new HashMap<>();
         protections = new HashMap<>();
+    }
+
+    public Spell clone() {
+        try {
+            return (Spell)super.clone();
+        } catch (CloneNotSupportedException e) {
+            return null;
+        }
     }
 
     public void setCooldown(float cooldown) {
@@ -33,6 +41,10 @@ public class Skill {
     public void setName(String name) { this.name = name; }
 
     public String getName() { return name; }
+
+    public SpellType getSpellType() {
+        return spellType;
+    }
 
     public void setFlavortext(String flavortext) { this.flavortext = flavortext; }
 

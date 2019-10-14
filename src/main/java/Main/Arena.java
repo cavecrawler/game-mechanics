@@ -16,6 +16,11 @@ public class Arena {
     private static final int ARMOR_CAP = 250;
     private static final float MAX_DAMAGE_REDUCTION = 0.75f;
 
+    public static final float GLOBAL_COOLDOWN = 0.5f;
+
+    private long lastTickTime = 0;
+    private int deltaTickTime = 0;
+
     private boolean running = true;
 
     private Character charOne;
@@ -36,7 +41,8 @@ public class Arena {
         charTwo.printCharacterInfo();
     }
 
-    public void update() {
+    public void update(long tickTime) {
+        deltaTickTime = (int)(tickTime - lastTickTime);
         if (charOne.isDead() || charTwo.isDead()) {
             running = false;
             if (charOne.isDead()) {
@@ -48,14 +54,19 @@ public class Arena {
             return;
         }
 
-        Attack attackOfCharOne = charOne.attack();
+        Attack attackOfCharOne = charOne.attack(deltaTickTime);
         Defense defenseOfCharOne = charOne.defend();
 
-        Attack attackOfCharTwo = charTwo.attack();
+        Attack attackOfCharTwo = charTwo.attack(deltaTickTime);
         Defense defenseOfCharTwo = charTwo.defend();
 
-        charOne.receiveDamage(fight(attackOfCharTwo, defenseOfCharOne));
-        charTwo.receiveDamage(fight(attackOfCharOne, defenseOfCharTwo));
+        if (!attackOfCharOne.getAttacks().entrySet().isEmpty()) {
+            charTwo.receiveDamage(fight(attackOfCharOne, defenseOfCharTwo));
+        }
+        if (!attackOfCharTwo.getAttacks().entrySet().isEmpty()){
+            charOne.receiveDamage(fight(attackOfCharTwo, defenseOfCharOne));
+        }
+        lastTickTime = tickTime;
     }
 
     private int fight(Attack attack, Defense defense) {
@@ -79,9 +90,13 @@ public class Arena {
         while (running) {
             long startTime = System.currentTimeMillis();
 
-            update();
+            update(startTime);
 
-            Thread.sleep(startTime + MS_PER_TICK - System.currentTimeMillis());
+            try { //try-catch only for debugging purpose
+                Thread.sleep(startTime + MS_PER_TICK - System.currentTimeMillis());
+            } catch (Exception e) {
+
+            }
         }
     }
 }

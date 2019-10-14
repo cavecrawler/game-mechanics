@@ -2,7 +2,7 @@ package Main;
 
 import Mechanics.Equipment.Armor.ArmorType;
 import Mechanics.Equipment.Weapon.WeaponType;
-import Mechanics.Skills.SkillType;
+import Mechanics.Spells.SpellType;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,12 +14,12 @@ public class CharacterClass {
     private int mana;
     private List<ArmorType> armorProficiencies;
     private List<WeaponType> weaponProficiencies;
-    private List<SkillType> skillProficiencies;
+    private List<SpellType> spellProficiencies;
 
     public CharacterClass() {
         armorProficiencies = new ArrayList<>();
         weaponProficiencies = new ArrayList<>();
-        skillProficiencies = new ArrayList<>();
+        spellProficiencies = new ArrayList<>();
     }
 
     public String getType() {
@@ -58,11 +58,7 @@ public class CharacterClass {
         return this.armorProficiencies;
     }
 
-    public List<SkillType> getSkillProficiencies() {
-        return this.skillProficiencies;
-    }
+    public List<SpellType> getSpellProficiencies() { return this.spellProficiencies; }
 
-    public List<WeaponType> getWeaponProficiencies() {
-        return weaponProficiencies;
-    }
+    public List<WeaponType> getWeaponProficiencies() { return weaponProficiencies; }
 }

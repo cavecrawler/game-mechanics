@@ -1,45 +1,45 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<skills>
-    <!-- Skills for ALL classes -->
-    <skill type="all" cooldown="0.0">
+<spells>
+    <!-- Spells for ALL classes -->
+    <spell type="all" cooldown="0.0">
         <name>Dodge</name>
         <flavortext>dodges the attack.</flavortext>
         <protections>
             <protection type="all">100</protection>
         </protections>
-    </skill>
-    <skill type="all" cooldown="0.0">
+    </spell>
+    <spell type="all" cooldown="0.0">
         <name>Basic Attack</name>
         <flavortext>deals a blow to the enemy.</flavortext>
-    </skill>
+    </spell>
 
 
-    <!-- WARRIOR SKILLS -->
-    <skill type="warrior" cooldown="5.0">
+    <!-- WARRIOR Spells -->
+    <spell type="warrior" cooldown="2.0">
         <name>Slam</name>
         <flavortext>slams the enemy with incredible force.</flavortext>
         <damages>
-            <damage type="blunt">10</damage>
+            <damage type="blunt">20</damage>
         </damages>
-    </skill>
+    </spell>
 
-    <!-- ROGUE SKILLS -->
-    <skill type="rogue" cooldown="5.0">
+    <!-- ROGUE Spells -->
+    <spell type="rogue" cooldown="2.0">
         <name>Backstab</name>
         <flavortext>stabs the enemy in the back.</flavortext>
         <damages>
-            <damage type="stab">10</damage>
+            <damage type="stab">30</damage>
         </damages>
-    </skill>
+    </spell>
 
-    <!-- MAGE SKILLS -->
-    <skill type="mage" cooldown="3.0">
+    <!-- MAGE Spells -->
+    <spell type="mage" cooldown="1.5">
         <name>Fireball</name>
         <flavortext>launches a fiery projectile against the enemy.</flavortext>
         <damages>
-            <damage type="burn">8</damage>
+            <damage type="burn">14</damage>
         </damages>
-    </skill>
+    </spell>
 
 
-</skills>
+</spells>

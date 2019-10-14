@@ -3,25 +3,25 @@
     <weapon type="sword" slot="main-hand" speed="1.0">
         <name>Wooden Sword</name>
         <damages>
-            <damage type="slash">3</damage>
+            <damage type="slash">6</damage>
         </damages>
     </weapon>
     <weapon type="pole-arm" slot="two-hand" speed="2.0">
         <name>Wooden Pike</name>
         <damages>
-            <damage type="stab">8</damage>
+            <damage type="stab">16</damage>
         </damages>
     </weapon>
     <weapon type="mace" slot="main-hand" speed="1.7">
         <name>Wooden Club</name>
         <damages>
-            <damage type="blunt">2</damage>
+            <damage type="blunt">5</damage>
         </damages>
     </weapon>
     <weapon type="staff" slot="two-hand" speed="1.5">
         <name>Crooked Staff</name>
         <damages>
-            <damage type="blunt">5</damage>
+            <damage type="blunt">10</damage>
         </damages>
     </weapon>
     <weapon type="shield" slot="off-hand" speed="1.0">
