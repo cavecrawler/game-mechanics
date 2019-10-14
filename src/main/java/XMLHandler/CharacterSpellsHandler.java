@@ -2,8 +2,8 @@ package XMLHandler;
 
 import Mechanics.Damage;
 import Mechanics.DamageType;
-import Mechanics.Skills.Skill;
-import Mechanics.Skills.SkillType;
+import Mechanics.Spells.Spell;
+import Mechanics.Spells.SpellType;
 import org.xml.sax.Attributes;
 import org.xml.sax.helpers.DefaultHandler;
 
@@ -12,8 +12,8 @@ import java.util.List;
 
 public class CharacterSpellsHandler extends DefaultHandler {
 
-    private List<Skill> skills;
-    private Skill currentSkill;
+    private List<Spell> spells;
+    private Spell currentSpell;
     private float currentCooldown;
     private DamageType currentDamageType;
     private DamageType currentProtectionType;
@@ -25,20 +25,20 @@ public class CharacterSpellsHandler extends DefaultHandler {
     private boolean damageContext;
     private boolean protectionContext;
 
-    public List<Skill> getSkills(){
-        return skills;
+    public List<Spell> getSpells(){
+        return spells;
     }
 
     @Override
     public void startElement(String uri, String localName, String qName, Attributes attributes) {
-        if (null == skills) {
-            skills = new ArrayList<>();
+        if (null == spells) {
+            spells = new ArrayList<>();
         }
 
-        if (qName.equalsIgnoreCase("skill")) {
-            SkillType st = SkillType.fromString(attributes.getValue("type"));
+        if (qName.equalsIgnoreCase("spell")) {
+            SpellType st = SpellType.fromString(attributes.getValue("type"));
             currentCooldown = Float.parseFloat(attributes.getValue("cooldown"));
-            currentSkill = new Skill(st, currentCooldown);
+            currentSpell = new Spell(st, currentCooldown);
         } else if (qName.equalsIgnoreCase("name")) {
             nameContext = true;
         } else if (qName.equalsIgnoreCase("flavortext")) {
@@ -54,23 +54,23 @@ public class CharacterSpellsHandler extends DefaultHandler {
 
     @Override
     public void endElement(String uri, String localName, String qName) {
-        if (qName.equalsIgnoreCase("skill")) {
-            currentSkill.setCooldown(currentCooldown);
-            skills.add(currentSkill);
+        if (qName.equalsIgnoreCase("spell")) {
+            currentSpell.setCooldown(currentCooldown);
+            spells.add(currentSpell);
         } else if (qName.equalsIgnoreCase("damage")) {
-            currentSkill.addDamage(new Damage(currentDamageType, currentDamageValue));
+            currentSpell.addDamage(new Damage(currentDamageType, currentDamageValue));
         } else if (qName.equalsIgnoreCase("protection")) {
-            currentSkill.addProtection(new Damage(currentProtectionType, currentProtectionValue));
+            currentSpell.addProtection(new Damage(currentProtectionType, currentProtectionValue));
         }
     }
 
     @Override
     public void characters(char[] ch, int start, int length) {
         if (nameContext) {
-            currentSkill.setName(new String(ch, start, length));
+            currentSpell.setName(new String(ch, start, length));
             nameContext = false;
         } else if (flavorTextContext) {
-            currentSkill.setFlavortext(new String(ch, start, length));
+            currentSpell.setFlavortext(new String(ch, start, length));
             flavorTextContext = false;
         } else if (damageContext) {
             currentDamageValue = Integer.parseInt(new String(ch, start, length));

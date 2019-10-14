@@ -11,8 +11,8 @@
             <weapon type="dagger"/>
             <weapon type="sword"/>
             <weapon type="mace"/>
-            <skill type="all"/>
-            <skill type="rogue"/>
+            <spell type="all"/>
+            <spell type="rogue"/>
         </proficiencies>
     </class>
     <class type="Warrior">
@@ -29,8 +29,8 @@
             <weapon type="pole-arm"/>
             <weapon type="staff"/>
             <weapon type="shield"/>
-            <skill type="all"/>
-            <skill type="warrior"/>
+            <spell type="all"/>
+            <spell type="warrior"/>
         </proficiencies>
     </class>
     <class type="Mage">
@@ -43,8 +43,8 @@
             <weapon type="sword"/>
             <weapon type="staff"/>
             <weapon type="wand"/>
-            <skill type="all"/>
-            <skill type="mage"/>
+            <spell type="all"/>
+            <spell type="mage"/>
         </proficiencies>
     </class>
 </classes>

@@ -3,7 +3,7 @@ package XMLHandler;
 import Mechanics.Equipment.Armor.ArmorType;
 import Mechanics.Equipment.Weapon.WeaponType;
 import Main.CharacterClass;
-import Mechanics.Skills.SkillType;
+import Mechanics.Spells.SpellType;
 import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
@@ -42,8 +42,8 @@ public class CharacterClassHandler extends DefaultHandler {
             characterClass.getArmorProficiencies().add(ArmorType.fromString(attributes.getValue("type")));
         } else if (qName.equalsIgnoreCase("weapon")) {
             characterClass.getWeaponProficiencies().add(WeaponType.fromString(attributes.getValue("type")));
-        } else if (qName.equalsIgnoreCase("skill")) {
-            characterClass.getSkillProficiencies().add(SkillType.fromString(attributes.getValue("type")));
+        } else if (qName.equalsIgnoreCase("spell")) {
+            characterClass.getSpellProficiencies().add(SpellType.fromString(attributes.getValue("type")));
         }
     }
 

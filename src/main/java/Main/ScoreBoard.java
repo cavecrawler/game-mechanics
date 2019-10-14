@@ -5,9 +5,9 @@ import java.util.Map;
 
 public class ScoreBoard {
 
-    Map<Character, Integer> champions;
-    Character currentChampion;
-    int currentChampionSurvivedRounds;
+    private Map<Character, Integer> champions;
+    private Character currentChampion;
+    private int currentChampionSurvivedRounds;
 
     public ScoreBoard() {
         champions = new HashMap<Character, Integer>();
@@ -25,7 +25,7 @@ public class ScoreBoard {
             if (winnerOfThisRound == currentChampion) {
                 championWonAnotherRound();
                 announceRoundSummary(currentChampion, looserOfThisRound);
-                System.out.println(winnerOfThisRound.getName() + ", the Mighty, already survived " +  currentChampionSurvivedRounds + " rounds!");
+                System.out.println(winnerOfThisRound.getName() + " the Mighty, already survived " +  currentChampionSurvivedRounds + " rounds!");
             } else {
                 currentChampion = winnerOfThisRound;
                 thereIsANewChampion(currentChampion);
@@ -54,7 +54,7 @@ public class ScoreBoard {
     public Map<Character, Integer> getChampions() { return champions; }
 
     public void announceRoundSummary(Character winner, Character looser) {
-        System.out.println(looser.getName() + ", the " + looser.getCharacterClass().getType() + ", was defeated!");
-        System.out.println(winner.getName() + ", the " + winner.getCharacterClass().getType() + ", was victorious, with " + winner.getHitpoints() + " hp left!");
+        System.out.println(looser.getName() + " the " + looser.getCharacterClass().getType() + " was defeated!");
+        System.out.println(winner.getName() + " the " + winner.getCharacterClass().getType() + " was victorious, with " + winner.getHitpoints() + " hp left!");
     }
 }
